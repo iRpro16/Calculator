@@ -1,5 +1,6 @@
-let a = 5;
-let b = 5;
+let a = 0;
+let b = 0;
+let operator = "";
 
 function add() {
     return a + b;
@@ -17,4 +18,6 @@ function div() {
     return a / b;
 }
 
-function operate(operator, a , b);
+function operate(operator, a , b) {
+
+};
