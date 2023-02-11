@@ -13,6 +13,8 @@ buttonClear.onclick = clear;
 // Function to populate and retrieve a & b values:
 buttonNums.forEach(number => {
     number.addEventListener('click', (e) => {
+        // Clear the 0:
+        if (currentNum.textContent == 0) currentNum.textContent = "";
         if (operator === "") {
             previousNum.textContent += e.target.value;
             a = previousNum.textContent;
@@ -30,6 +32,7 @@ buttonOps.forEach(op => {
     op.addEventListener('click', (e) => {
         if (e.target.textContent !== "=") {
             operator = e.target.textContent;
+            //previousNum.textContent += operator;
         } else {
             operate(operator, a, b);
         }
@@ -39,25 +42,25 @@ buttonOps.forEach(op => {
 // Function to add:
 function add(a, b) {
     previousNum.textContent = "";
-    currentNum.textContent = parseInt(a) + parseInt(b);
+    currentNum.textContent = parseFloat(a) + parseFloat(b);
 }
 
 // Function to subtract:
 function sub(a, b) {
     previousNum.textContent = "";
-    currentNum.textContent = parseInt(a) - parseInt(b);
+    currentNum.textContent = parseFloat(a) - parseFloat(b);
 }
 
 // Function to multiply:
 function mult(a, b) {
     previousNum.textContent = "";
-    currentNum.textContent = parseInt(a) * parseInt(b);
+    currentNum.textContent = parseFloat(a) * parseFloat(b);
 }
 
 // Function to divide:
 function div(a, b) {
     previousNum.textContent = "";
-    currentNum.textContent = parseInt(a) / parseInt(b);
+    currentNum.textContent = parseFloat(a) / parseFloat(b);
 }
 
 // Function to operate depending on case:
@@ -67,16 +70,16 @@ function operate(operator, a, b) {
         break;
         case "-": sub(a, b);
         break;
-        case '*': mult(a, b);
+        case 'x': mult(a, b);
         break;
         case "÷": div (a, b);
         break;
     }
+
 };
 
 
 // Function clear:
-
 function clear() {
     previousNum.textContent = "";
     currentNum.textContent = "";
