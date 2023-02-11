@@ -23,15 +23,15 @@ buttonNums.forEach(number => {
             console.log(`b is ${b}`);
         }
     })
-})
+});
 
 // Function to get operator and call operate function:
 buttonOps.forEach(op => {
     op.addEventListener('click', (e) => {
         if (e.target.textContent !== "=") {
-            operator = e.target.innertext;
+            operator = e.target.textContent;
         } else {
-            operate();
+            operate(operator, a, b);
         }
     })
 });
@@ -57,17 +57,28 @@ function mult(a, b) {
 // Function to divide:
 function div(a, b) {
     previousNum.textContent = "";
-    curentNum.textContent = parseInt(a) / parseInt(b);
+    currentNum.textContent = parseInt(a) / parseInt(b);
 }
 
 // Function to operate depending on case:
 function operate(operator, a, b) {
-    if (operator === "+") add(a,b);
+    switch(operator) {
+        case "+": add(a, b);
+        break;
+        case "-": sub(a, b);
+        break;
+        case '*': mult(a, b);
+        break;
+        case "÷": div (a, b);
+        break;
+    }
 };
+
 
 // Function clear:
 
 function clear() {
     previousNum.textContent = "";
     currentNum.textContent = "";
+    operator = "";
 }
