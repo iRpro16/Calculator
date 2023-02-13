@@ -14,13 +14,13 @@ function calculate() {
     let result;
     
     switch(operator) {
-        case "+": result = previous + current;
+        case "+": result = (previous + current).toFixed(4);
         break;
-        case "-": result = previous - current;
+        case "-": result = (previous - current).toFixed(4);
         break;
-        case "x": result = previous * current;
+        case "x": result = (previous * current).toFixed(4);
         break;
-        case "÷": result = previous / current;
+        case "÷": result = (previous / current).toFixed(4);
     }
 
     b = result;
