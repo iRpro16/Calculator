@@ -6,6 +6,12 @@ let previousNum = document.querySelector('.previous-num');
 let buttonNums = document.querySelectorAll('.number');
 let buttonOps = document.querySelectorAll('.operator');
 let buttonClear = document.querySelector('.clear');
+let equalBtn = document.querySelector('.op-equal');
+
+// On click, calculate: 
+equalBtn.addEventListener('click', () => {
+    operate(operator, a, b);
+});
 
 // On click, clear:
 buttonClear.onclick = clear;
@@ -30,12 +36,9 @@ buttonNums.forEach(number => {
 // Function to get operator and call operate function:
 buttonOps.forEach(op => {
     op.addEventListener('click', (e) => {
-        if (e.target.textContent !== "=") {
             operator = e.target.textContent;
             //previousNum.textContent += operator;
-        } else {
-            operate(operator, a, b);
-        }
+        
     })
 });
 
@@ -75,7 +78,6 @@ function operate(operator, a, b) {
         case "÷": div (a, b);
         break;
     }
-
 };
 
 
